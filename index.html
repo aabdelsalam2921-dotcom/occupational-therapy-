@@ -1,0 +1,1037 @@
+<title>Occupational Therapy Field Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky chapter rail on the left, long single-column reading on the right; becomes a scrolling chip bar on phones. */
+:root{
+  --bg:#f2f6f5; --surface:#ffffff; --ink:#10292a; --muted:#4b6566; --line:#d2dedc;
+  --spruce:#0f4c4a; --spruce-2:#1d6b68; --on-spruce:#ffffff;
+  --gold:#f2a900; --gold-soft:#fdf0c9; --gold-ink:#6b4a00;
+  --sky:#3b82a8; --sky-soft:#dcecf4; --leaf:#5c9b43; --leaf-soft:#e2f0da; --rose:#cf4d63; --rose-soft:#f9e0e4;
+  --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hdr:54px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1819; --surface:#132627; --ink:#e7f1ef; --muted:#9db6b3; --line:#264243;
+  --spruce:#63c4bc; --spruce-2:#3fa39c; --on-spruce:#06201f;
+  --gold:#f5b82e; --gold-soft:#3a2f10; --gold-ink:#f5d27a;
+  --sky:#6bb3d6; --sky-soft:#13303c; --leaf:#8fd16f; --leaf-soft:#1c3015; --rose:#ef7d90; --rose-soft:#3d1b22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1819; --surface:#132627; --ink:#e7f1ef; --muted:#9db6b3; --line:#264243;
+  --spruce:#63c4bc; --spruce-2:#3fa39c; --on-spruce:#06201f;
+  --gold:#f5b82e; --gold-soft:#3a2f10; --gold-ink:#f5d27a;
+  --sky:#6bb3d6; --sky-soft:#13303c; --leaf:#8fd16f; --leaf-soft:#1c3015; --rose:#ef7d90; --rose-soft:#3d1b22; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{overflow-x:clip;background:var(--bg);color:var(--ink);font:400 16.5px/1.62 var(--font-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+a{color:var(--spruce)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+p{margin:0 0 14px;max-width:68ch}
+ul{margin:0 0 14px;padding-left:1.2em}
+li{margin-bottom:6px}
+b,strong{font-weight:650}
+
+/* header */
+.site-top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;height:var(--hdr);display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.brand{font:700 18px/1 var(--font-display);display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.brand i{width:26px;height:26px;border-radius:8px;background:var(--spruce);display:grid;place-items:center;color:var(--on-spruce);font:700 12px var(--font-mono);font-style:normal}
+.tbtn{font:500 12px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.tbtn:hover{border-color:var(--spruce)}
+
+.shell{max-width:1260px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(24px,4vw,56px)}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr));align-self:start;max-height:calc(100vh - var(--hdr));overflow:auto;padding:24px 0}
+.rail h4{font:500 11px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.rail h4:first-child{margin-top:0}
+.rail a{display:block;text-decoration:none;color:var(--muted);padding:6px 10px;border-left:2px solid var(--line);font-size:14.5px;line-height:1.35}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--ink);border-left-color:var(--gold);font-weight:600;background:linear-gradient(90deg,var(--gold-soft),transparent)}
+main{min-width:0}
+section{scroll-margin-top:calc(var(--hdr) + 18px)}
+
+/* type */
+.eyebrow{font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance}
+h1{font-weight:800;font-size:clamp(40px,6.2vw,80px);overflow-wrap:anywhere;line-height:.95;letter-spacing:-.035em;margin:18px 0 22px}
+h2{font-weight:700;font-size:clamp(28px,4.2vw,44px);line-height:1.08;letter-spacing:-.02em;margin:14px 0 14px}
+h3{font-weight:700;font-size:clamp(19px,2.4vw,23px);line-height:1.2;margin:28px 0 10px}
+.lead{font-size:clamp(17.5px,2vw,20.5px);line-height:1.55;max-width:60ch}
+.sec{padding-block:clamp(44px,7vw,84px);border-top:1px solid var(--line)}
+.note{font-size:14.5px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;max-width:68ch}
+.mono{font-family:var(--font-mono)}
+
+/* components */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.grid.s{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;min-width:0}
+.card h3,.card h4{margin:0 0 8px}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.rule{border-top:3px solid var(--spruce);padding-top:12px;min-width:0}
+.rule h3{margin-top:0}
+.split{display:grid;gap:clamp(20px,4vw,48px);grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.split.top{align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;padding:0;list-style:none}
+.chips li{margin:0;background:var(--sky-soft);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:14px}
+.chips.g li{background:var(--leaf-soft)} .chips.y li{background:var(--gold-soft)} .chips.r li{background:var(--rose-soft)}
+.ico{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.fig{margin:0}
+.fig svg{display:block;width:100%;height:auto;max-width:100%}
+.fig figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.callout{background:var(--spruce);color:var(--on-spruce);border-radius:16px;padding:clamp(20px,3vw,32px)}
+.callout p{max-width:60ch;font-size:clamp(18px,2.2vw,22px);line-height:1.45;font-family:var(--font-display);margin:0}
+.callout .eyebrow{color:inherit;opacity:.8;margin-bottom:12px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 12px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+summary{cursor:pointer;padding:14px 18px;font:600 17px var(--font-display);list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 20px var(--font-mono);color:var(--spruce)}
+details[open] summary::after{content:"–"}
+details .in{padding:0 18px 16px}
+details .in p:last-child,details .in ul:last-child{margin-bottom:0}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.seg button,.opt{font:500 14px var(--font-body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--spruce);color:var(--on-spruce);border-color:var(--spruce)}
+
+/* hero */
+.hero{padding-block:clamp(32px,6vw,72px) clamp(44px,7vw,84px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,64px);align-items:center}
+.hero h1 span{color:var(--spruce)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 22px}
+.btn{font:600 15px var(--font-body);text-decoration:none;border-radius:12px;padding:13px 20px;display:inline-block}
+.btn.p{background:var(--spruce);color:var(--on-spruce)} .btn.s{border:1.5px solid var(--ink);color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;min-width:0}
+.tile{min-width:0;overflow:hidden;aspect-ratio:1;border-radius:18px;display:grid;place-items:center;color:var(--ink)}
+.tile .ico{width:56%;height:56%}
+.t1{background:var(--sky-soft)} .t2{background:var(--gold-soft)} .t3{background:var(--leaf-soft)} .t4{background:var(--rose-soft)}
+.tile.big{grid-column:span 2;aspect-ratio:2/1;background:var(--spruce);color:var(--on-spruce);padding:14px;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;place-items:unset}
+.tile.big b{font:700 clamp(15px,2vw,20px)/1.15 var(--font-display)}
+.tile.big span{font:500 11px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+
+/* timeline */
+.tl{list-style:none;margin:28px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{position:relative;padding-left:36px;margin-bottom:22px;display:grid;gap:2px}
+.tl li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--spruce)}
+.tl li.l::before{border-color:var(--gold);background:var(--gold-soft)}
+.tl .yr{font:500 13px var(--font-mono);letter-spacing:.06em;color:var(--muted)}
+.tl h4{margin:0;font-size:19px}
+.tl p{margin:2px 0 0}
+
+/* interactive */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(16px,3vw,28px)}
+.ring-wrap{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(16px,4vw,40px);align-items:center}
+.ring{display:block;width:100%;max-width:340px;height:auto;aspect-ratio:1/1;margin-inline:auto}
+.ring path{fill:var(--sky-soft);stroke:var(--surface);stroke-width:2;cursor:pointer;transition:fill .15s}
+.ring g:hover path{fill:var(--gold-soft)}
+.ring g[aria-pressed="true"] path{fill:var(--spruce)}
+.ring text{fill:var(--ink);font:600 10.5px var(--font-body);pointer-events:none;text-anchor:middle}
+.ring g[aria-pressed="true"] text{fill:var(--on-spruce)}
+.ring g:focus-visible{outline:none}
+.ring g:focus-visible path{stroke:var(--gold);stroke-width:3}
+.ring .mid{fill:var(--ink);font:700 14px var(--font-display);text-anchor:middle}
+.ring .mid2{fill:var(--muted);font:500 8.5px var(--font-mono);letter-spacing:.1em;text-anchor:middle}
+#occ-t{font-size:26px;margin:0 0 6px}
+.chk{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.chk li{margin:0}
+.chk label{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--bg)}
+.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--spruce);flex:none}
+.chk label:has(input:checked){background:var(--leaf-soft);border-color:var(--leaf)}
+.res{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--gold-soft);color:var(--ink)}
+.res b{font-family:var(--font-display);font-size:18px}
+.sl{display:grid;gap:14px;margin-bottom:12px}
+.sl label{display:grid;gap:4px;font:500 13px var(--font-mono);letter-spacing:.04em}
+.sl input[type=range]{width:100%;accent-color:var(--spruce)}
+.zone{padding:12px 14px;border-radius:12px;font-size:15px}
+.z-low{background:var(--sky-soft)} .z-ok{background:var(--leaf-soft)} .z-hi{background:var(--rose-soft)}
+.zone b{display:block;font:700 18px var(--font-display);margin-bottom:2px}
+.chart text{fill:var(--ink);font:500 11px var(--font-body)}
+.chart .ax{stroke:var(--muted);stroke-width:1.5;fill:none}
+.chart .lbl{fill:var(--muted);font:500 10px var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+
+/* milestones */
+.lanes{display:grid;gap:10px}
+.lane{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:start;padding:14px 0;border-top:1px solid var(--line)}
+.lane .age{font:600 18px var(--font-display);line-height:1.15}
+.lane ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.lane li{margin:0;font-size:14.5px;padding:6px 11px;border-radius:10px;line-height:1.35}
+.m-g{background:var(--sky-soft)} .m-f{background:var(--gold-soft)} .m-s{background:var(--leaf-soft)} .m-p{background:var(--rose-soft)}
+.key{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.key span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.key .g::before{background:var(--sky)} .key .f::before{background:var(--gold)} .key .s::before{background:var(--leaf)} .key .p::before{background:var(--rose)}
+
+/* dunn grid */
+.dunn{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;align-items:stretch}
+.dunn .ax{font:500 11px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;padding:4px}
+.dunn .v{writing-mode:vertical-rl;transform:rotate(180deg)}
+.dunn .q{border-radius:14px;padding:14px 16px;min-width:0}
+.dunn .q h4{margin:0 0 4px;font-size:18px}
+.dunn .q p{font-size:14.5px;margin:0}
+
+/* quiz & glossary */
+.q-item{padding:20px 0;border-top:1px solid var(--line)}
+.q-item h4{margin:0 0 12px;font-size:19px;line-height:1.3}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border-radius:12px;padding:12px 14px;font-size:15.5px}
+.opt:hover:not([disabled]){border-color:var(--spruce)}
+.opt.ok{background:var(--leaf-soft);border-color:var(--leaf)} .opt.no{background:var(--rose-soft);border-color:var(--rose)}
+.opt[disabled]{cursor:default}
+.exp{margin-top:10px;font-size:14.5px;color:var(--muted)}
+.score{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr) + 8px);z-index:5;display:inline-block;background:var(--ink);color:var(--bg);font:500 13px var(--font-mono);border-radius:999px;padding:8px 16px;margin-bottom:8px}
+.search{width:100%;max-width:420px;font:400 16px var(--font-body);padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);margin-bottom:18px}
+dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 36px;margin:0}
+dl div{padding:12px 0;border-top:1px solid var(--line);min-width:0}
+dt{font:700 17px var(--font-display)} dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+.course{display:grid;gap:0;margin:0;padding:0;list-style:none;counter-reset:c}
+.course li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:baseline;padding:11px 0;border-top:1px solid var(--line);margin:0}
+.course .n{font:500 14px var(--font-mono);color:var(--muted)}
+.course li.now{background:linear-gradient(90deg,var(--gold-soft),transparent)}
+.course li.now .n{color:var(--gold-ink)}
+footer{padding-block:40px 80px;border-top:1px solid var(--line);color:var(--muted);font-size:14.5px}
+footer p{max-width:70ch}
+
+@media (max-width:960px){
+  .shell{display:block}
+  .rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr));z-index:25;display:flex;gap:6px;overflow-x:auto;padding:8px max(16px,env(safe-area-inset-left,0px));margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));background:var(--bg);border-bottom:1px solid var(--line);max-height:none;scrollbar-width:none}
+  .rail h4{display:none}
+  .rail a{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px}
+  .rail a.on{background:var(--spruce);color:var(--on-spruce);border-color:var(--spruce)}
+  section{scroll-margin-top:calc(var(--hdr) + 60px)}
+  .hero-grid,.split,.ring-wrap{grid-template-columns:minmax(0,1fr)}
+  .score{top:calc(env(safe-area-inset-top,0px) + var(--hdr) + 56px)}
+}
+@media (max-width:520px){
+  .lane{grid-template-columns:minmax(0,1fr);gap:6px}
+  .dunn{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .dunn .ax.v{display:none}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-brush" viewBox="0 0 48 48"><path d="M7 41 25 23" stroke-width="5"/><path d="M27 21 33 15"/><rect x="29" y="5" width="12" height="12" rx="2" transform="rotate(45 35 11)"/></symbol>
+  <symbol id="i-button" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><circle cx="19" cy="20" r="1.6" fill="currentColor"/><circle cx="29" cy="20" r="1.6" fill="currentColor"/><circle cx="19" cy="28" r="1.6" fill="currentColor"/><circle cx="29" cy="28" r="1.6" fill="currentColor"/><path d="M19 20 29 28M29 20 19 28"/></symbol>
+  <symbol id="i-spoon" viewBox="0 0 48 48"><ellipse cx="24" cy="14" rx="8" ry="10"/><path d="M24 24V43"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 48 48"><path d="M9 39 11 30 33 8 40 15 18 37Z"/><path d="M30 11 37 18M11 30 18 37"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 48 48"><circle cx="13" cy="36" r="6"/><circle cx="35" cy="36" r="6"/><path d="M17 31 36 6M31 31 12 6"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M7 24Q24 12 41 24M7 24Q24 36 41 24M24 7V41"/></symbol>
+  <symbol id="i-blocks" viewBox="0 0 48 48"><rect x="6" y="28" width="15" height="15"/><rect x="23" y="28" width="15" height="15"/><rect x="14" y="12" width="15" height="15"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 48 48"><path d="M15 27V14a3 3 0 0 1 6 0v10M21 22V9a3 3 0 0 1 6 0v13M27 22V12a3 3 0 0 1 6 0v14M33 26v-7a3 3 0 0 1 6 0v12c0 8-6 13-13 13h-3c-5 0-8-3-11-8l-5-8a3 3 0 0 1 5-3l4 5"/></symbol>
+  <symbol id="i-hospital" viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="30" rx="2"/><path d="M24 19v14M17 26h14M18 12V7h12v5"/></symbol>
+  <symbol id="i-school" viewBox="0 0 48 48"><path d="M6 21 24 9l18 12"/><rect x="10" y="21" width="28" height="21"/><path d="M24 9V3h8"/><rect x="20" y="30" width="8" height="12"/></symbol>
+  <symbol id="i-home" viewBox="0 0 48 48"><path d="M6 24 24 8l18 16"/><path d="M11 21v21h26V21"/><rect x="20" y="29" width="8" height="13"/></symbol>
+  <symbol id="i-work" viewBox="0 0 48 48"><rect x="6" y="15" width="36" height="26" rx="3"/><path d="M17 15v-5h14v5M6 27h36"/></symbol>
+  <symbol id="i-clinic" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M24 15v18M15 24h18"/></symbol>
+  <symbol id="i-rehab" viewBox="0 0 48 48"><path d="M6 24h36M11 15v18M17 18v12M31 18v12M37 15v18"/></symbol>
+  <symbol id="i-people" viewBox="0 0 48 48"><circle cx="24" cy="15" r="6"/><circle cx="9" cy="21" r="4.5"/><circle cx="39" cy="21" r="4.5"/><path d="M12 40c0-8 5-13 12-13s12 5 12 13M2 38c0-6 3-9 7-9M46 38c0-6-3-9-7-9"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 48 48"><path d="M24 5 8 11v13c0 10 7 16 16 19 9-3 16-9 16-19V11z"/><path d="M17 24l5 5 9-10"/></symbol>
+</svg>
+
+<div class="site-top">
+  <div class="brand"><i>OT</i> Occupational Therapy Field Guide</div>
+  <button class="tbtn" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+</div>
+
+<div class="shell">
+<nav class="rail" id="rail" aria-label="Chapters">
+  <h4>Foundations</h4>
+  <a href="#what">What is OT</a><a href="#history">History</a><a href="#role">The therapist &amp; settings</a><a href="#domains">Domains of practice</a>
+  <h4>Pediatric practice</h4>
+  <a href="#refer">Benefits &amp; referral</a><a href="#process">The OT process</a><a href="#rules">Activity rules &amp; participation</a><a href="#toolkit">Intervention toolkit</a><a href="#environment">Environmental modification</a>
+  <h4>Going deeper</h4>
+  <a href="#development">Child development</a><a href="#sensory">Sensory processing</a><a href="#frameworks">Frameworks &amp; models</a><a href="#assessments">Assessments</a><a href="#conditions">Conditions &amp; lifespan</a><a href="#ethics">Ethics &amp; career</a>
+  <h4>Study tools</h4>
+  <a href="#course">Course roadmap</a><a href="#glossary">Glossary</a><a href="#quiz">Self-test</a>
+</nav>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow"><span>Study guide · Pediatric focus</span></div>
+      <h1>Occupational <span>Therapy</span></h1>
+      <p class="lead">The health profession that helps people take part in the everyday activities that matter to them. This guide covers the whole field: history, models, assessments, conditions across the lifespan and ethics, with a pediatric focus.</p>
+      <div class="cta"><a class="btn p" href="#what">Start reading</a><a class="btn s" href="#quiz">Test yourself</a></div>
+      <ul class="chips"><li>Founded as a society in 1917</li><li>9 areas of occupation</li><li>3-stage process</li><li>All ages</li></ul>
+    </div>
+    <div class="tiles" aria-label="Everyday occupations of childhood">
+      <div class="tile big"><span>The goal</span><b>Independence, participation, quality of life</b></div>
+      <div class="tile t1"><svg class="ico"><use href="#i-brush"/></svg></div>
+      <div class="tile t2"><svg class="ico"><use href="#i-pencil"/></svg></div>
+      <div class="tile t3"><svg class="ico"><use href="#i-button"/></svg></div>
+      <div class="tile t4"><svg class="ico"><use href="#i-scissors"/></svg></div>
+      <div class="tile t1"><svg class="ico"><use href="#i-ball"/></svg></div>
+      <div class="tile t3"><svg class="ico"><use href="#i-hand"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="sec" id="what">
+  <div class="eyebrow">Chapter 1</div>
+  <h2>What is occupational therapy?</h2>
+  <p class="lead">Occupational therapy (OT) is the use of exercises, activities, strategies and accommodations to help children develop skills for greater independence.</p>
+  <p>The word <b>occupation</b> here does not mean only a job. It means every activity that fills a person's day and gives it meaning: getting dressed, eating, learning, playing, caring for others, working and relaxing. When illness, injury, disability or development gets in the way of those activities, an occupational therapist (OT) works out why and helps the person take part again.</p>
+  <p>The broader international definition, used by the World Federation of Occupational Therapists, describes OT as a client-centred health profession concerned with promoting health and well-being through occupation. Its main goal is to enable people to participate in the activities of everyday life.</p>
+
+  <h3>Performance versus participation</h3>
+  <div class="split top">
+    <div>
+      <p><b>Performance</b> is how well a child does a task. <b>Participation</b> is whether the child gets to be involved in the life situation at all. OT interventions are not focused only on the child's performance. They also implement adapted methods or apply assistive technology to increase participation despite performance problems.</p>
+      <div class="card"><h4>Worked example</h4><p>A seven-year-old with weak hand control cannot yet write neatly (a performance problem). The OT builds hand strength through play, <i>and</i> provides a pencil grip, a slanted board and typing access in class. The child joins every lesson now while the hand skills keep improving.</p></div>
+    </div>
+    <div class="callout"><div class="eyebrow">Core idea</div><p>Meaningful activity helps people heal and adapt. It grew into a global profession that promotes independence and quality of life.</p></div>
+  </div>
+
+  <h3>Nine areas of occupation</h3>
+  <p>The Occupational Therapy Practice Framework (OTPF-4, AOTA 2020) groups human occupation into nine areas. Select a segment.</p>
+  <div class="panel ring-wrap">
+    <svg class="ring" id="ring" viewBox="0 0 300 300" role="group" aria-label="Areas of occupation"></svg>
+    <div aria-live="polite"><h3 id="occ-t"></h3><p id="occ-d"></p></div>
+  </div>
+
+  <h3>Five types of activity OT uses with children</h3>
+  <div class="grid">
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-brush"/></svg><h4>1 · Self-care (ADL)</h4><p>Brushing teeth, buttoning clothes, using eating utensils. Also toileting, bathing and dressing.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-pencil"/></svg><h4>2 · Hand-eye coordination</h4><p>Writing on a classroom whiteboard, copying into a notebook what the teacher writes on the board. Also catching, threading, cutting along a line.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-scissors"/></svg><h4>3 · Fine motor skills</h4><p>Grasping, controlling a pencil, using scissors. Also tying laces, fastening zips, manipulating small objects.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-ball"/></svg><h4>4 · Gross motor skills</h4><p>Jumping jacks, building core muscle strength for sitting posture. Also balance, climbing and ball skills.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-hand"/></svg><h4>5 · Sensory responses</h4><p>Helping children with sensory processing issues respond to sensory input in more comfortable ways: textures, sounds, movement, pressure.</p></div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="sec" id="history">
+  <div class="eyebrow">Chapter 2</div>
+  <h2>A short history of doing</h2>
+  <p class="lead">The profession began with one simple idea: purposeful activity restores health.</p>
+  <ol class="tl">
+    <li><span class="yr">Ancient times</span><h4>Work and daily tasks as medicine</h4><p>Ancient Egyptians and Greeks used work and daily tasks to improve health and well-being. Greek and Roman physicians also prescribed exercise, music, baths and work. The physician Galen is often quoted: "Employment is nature's best physician."</p></li>
+    <li><span class="yr">Middle Ages</span><h4>Crafts and routines</h4><p>Some physicians noticed that engaging in crafts or daily routines reduced stress and improved mental health.</p></li>
+    <li><span class="yr">18th–19th century</span><h4>The Moral Treatment Movement</h4><p>In Europe and America, doctors began treating people with mental illness through useful activities (farming, handwork, structured routines) instead of isolation and restraints. Key figures include Philippe Pinel in France and William Tuke at the York Retreat in England.</p></li>
+    <li><span class="yr">Late 1800s – 1910s</span><h4>Arts and Crafts movement and the first practitioners</h4><p>The Arts and Crafts movement valued handwork and purposeful making. Early figures such as nurse Susan Tracy, psychiatrist Adolf Meyer and Eleanor Clarke Slagle developed activity-based programmes and habit training in hospitals.</p></li>
+    <li><span class="yr">1917</span><h4>The first professional society</h4><p>The National Society for the Promotion of Occupational Therapy was founded in the USA. OT was defined as the use of self-care, work and leisure activities as therapy. The society became the American Occupational Therapy Association in 1921.</p></li>
+    <li><span class="yr">World War I and II</span><h4>Rehabilitating soldiers and civilians</h4><p>OT spread widely to rehabilitate injured soldiers and civilians, both physically and mentally. Early practitioners worked as "reconstruction aides".</p></li>
+    <li><span class="yr">1952</span><h4>World Federation of Occupational Therapists</h4><p>National associations formed the WFOT, which sets international standards for education and practice.</p></li>
+    <li><span class="yr">1960s – 1970s</span><h4>Medical model, then a return to occupation</h4><p>Practice leaned toward treating body impairments. In 1961 Mary Reilly argued that OT could be one of the great ideas of twentieth-century medicine, calling for a return to occupation. A. Jean Ayres published her sensory integration work in 1972. School-based OT grew after laws guaranteeing education for children with disabilities (in the USA, 1975).</p></li>
+    <li><span class="yr">1980s – 1990s</span><h4>Models and occupational science</h4><p>The Model of Human Occupation (Kielhofner, 1980), the Person-Environment-Occupation model (Law and colleagues, 1996) and the Canadian Model of Occupational Performance gave the profession its own theories. Occupational science developed as an academic discipline.</p></li>
+    <li><span class="yr">Mid 20th century to present</span><h4>A global academic and clinical profession</h4><p>OT expanded into pediatrics (autism, learning disabilities, physical disabilities), geriatrics (stroke, dementia), hand therapy, neurological rehabilitation and community health.</p></li>
+  </ol>
+  <div class="callout"><div class="eyebrow">In summary</div><p>Occupational Therapy started from the simple idea that "meaningful activity helps people heal and adapt" and developed into a global profession that promotes independence and quality of life.</p></div>
+</section>
+
+<!-- ROLE -->
+<section class="sec" id="role">
+  <div class="eyebrow">Chapter 3</div>
+  <h2>The therapist and where they work</h2>
+  <p class="lead">An occupational therapist is a healthcare professional who empowers individuals to lead more productive, satisfying and independent lives. They are often creative in their approach.</p>
+  <h3>Where OT services are provided</h3>
+  <div class="grid s">
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-hospital"/></svg><h4>Hospitals</h4><p>Acute care, neonatal units, burns, orthopedics, neurology.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-school"/></svg><h4>Schools and special schools</h4><p>Handwriting, classroom access, sensory supports.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-home"/></svg><h4>Homes</h4><p>Routines, home safety, caregiver coaching.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-work"/></svg><h4>Work places</h4><p>Ergonomics, return to work, job adaptation.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-clinic"/></svg><h4>Private clinics</h4><p>Individual and group therapy, sensory gyms.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-rehab"/></svg><h4>Rehabilitation centers</h4><p>Intensive rehab after stroke, spinal cord or brain injury.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-people"/></svg><h4>Community health centers</h4><p>Prevention, group programmes, outreach.</p></div>
+    <div class="card"><svg class="ico" style="color:var(--spruce)"><use href="#i-shield"/></svg><h4>Insurance companies</h4><p>Assessment, case review and funding decisions.</p></div>
+  </div>
+
+  <h3>OT and physical therapy side by side</h3>
+  <p>The two professions overlap and work as partners, especially in pediatrics. The difference lies in the question each one asks first.</p>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Physical therapy</th><th>Occupational therapy</th></tr></thead>
+    <tbody>
+      <tr><td><b>Core question</b></td><td>How can this person move better and with less pain?</td><td>What does this person need and want to do, and what stops them?</td></tr>
+      <tr><td><b>Main focus</b></td><td>Strength, range of motion, balance, gait, mobility, pain, cardiopulmonary function</td><td>Daily occupations: self-care, school, play, work; hand function, cognition, sensory processing, environment</td></tr>
+      <tr><td><b>Typical tools</b></td><td>Exercise, manual therapy, gait training, electrotherapy, mobility aids</td><td>Activity analysis and grading, adaptive equipment, splints, home and school modification, routines</td></tr>
+      <tr><td><b>Child with cerebral palsy</b></td><td>Walking, standing, postural control, positioning</td><td>Dressing, feeding, handwriting, using a switch or tablet, classroom access</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The people around a child</h3>
+  <ul class="chips g"><li>Child</li><li>Parents and caregivers</li><li>Teachers</li><li>Physical therapist</li><li>Speech-language pathologist</li><li>Pediatrician</li><li>Psychologist</li><li>Nurse</li><li>Social worker</li></ul>
+</section>
+
+<!-- DOMAINS -->
+<section class="sec" id="domains">
+  <div class="eyebrow">Chapter 4</div>
+  <h2>Domains of practice</h2>
+  <p class="lead">The OTPF-4 organises what OTs look at into five domains and describes the process they follow.</p>
+  <div class="grid">
+    <div class="rule"><h3>Occupations</h3><p>The nine areas from Chapter 1: ADLs, IADLs, health management, rest and sleep, education, work, play, leisure, social participation.</p></div>
+    <div class="rule"><h3>Contexts</h3><p>Environmental factors (physical, social) and personal factors (age, gender, education, lifestyle, culture, values).</p></div>
+    <div class="rule"><h3>Performance patterns</h3><p>Habits, routines, roles and rituals that shape daily life.</p></div>
+    <div class="rule"><h3>Performance skills</h3><p>Observable actions: motor skills, process skills (organising, problem-solving), social interaction skills.</p></div>
+    <div class="rule"><h3>Client factors</h3><p>Values and beliefs, body functions (sensory, neuromusculoskeletal, cognitive, mental) and body structures.</p></div>
+  </div>
+  <h3>The process</h3>
+  <div class="grid">
+    <div class="card"><h4>Evaluation</h4><p>Build an <b>occupational profile</b> (what matters to the client) and <b>analyse occupational performance</b> (what supports or blocks it).</p></div>
+    <div class="card"><h4>Intervention</h4><p><b>Plan</b> with goals, <b>implement</b> with approaches such as prevention, restoration, maintenance, compensation, and <b>review</b> progress.</p></div>
+    <div class="card"><h4>Targeting outcomes</h4><p>Measure whether the client achieved participation, well-being, independence, and decide to continue, change or discharge.</p></div>
+  </div>
+</section>
+
+<!-- REFER -->
+<section class="sec" id="refer">
+  <div class="eyebrow">Chapter 5</div>
+  <h2>Benefits and referral</h2>
+  <h3>Benefits of OT for children</h3>
+  <div class="grid">
+    <div class="card"><h4>Better concentration</h4><p>Kids learn to concentrate better and complete their schoolwork with more success.</p></div>
+    <div class="card"><h4>Self-confidence</h4><p>Confidence grows as children learn to do more tasks on their own.</p></div>
+    <div class="card"><h4>Further benefits</h4><p>Stronger hand and body skills, easier daily routines, calmer responses to sensory input, better play and friendships, practical support for families.</p></div>
+  </div>
+  <h3>When to refer a child to OT</h3>
+  <p>A child may be referred in two primary situations.</p>
+  <div class="grid">
+    <div class="card" style="background:var(--sky-soft)"><h4>1 · Specific diagnosis</h4><p>The child has a diagnosis such as <b>autism</b> or <b>cerebral palsy</b>. Others include developmental coordination disorder, Down syndrome, ADHD, spina bifida, muscular dystrophy, brachial plexus injury and global developmental delay.</p></div>
+    <div class="card" style="background:var(--gold-soft)"><h4>2 · Functional problem</h4><p>The child shows issues such as <b>poor fine motor skills</b> or <b>attention deficits</b>, even without a diagnosis. The problem interferes with school, play or self-care.</p></div>
+  </div>
+  <h3>Signs that may prompt a referral</h3>
+  <div class="grid">
+    <div><h4 class="mono" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Hands and school</h4><ul><li>Awkward or tiring pencil grip, messy or very slow writing</li><li>Avoids drawing, cutting, construction toys</li><li>Struggles with buttons, zips, laces</li></ul></div>
+    <div><h4 class="mono" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Body and movement</h4><ul><li>Clumsy, trips often, avoids playground equipment</li><li>Slumps at the desk, tires quickly when sitting</li><li>Fear of swings, heights or uneven ground</li></ul></div>
+    <div><h4 class="mono" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Sensory and behaviour</h4><ul><li>Distress with noise, clothing tags, messy textures</li><li>Very picky eating based on texture</li><li>Always seeking crashing, spinning, chewing</li><li>Difficulty staying focused or managing transitions</li></ul></div>
+  </div>
+  <p class="note">These signs are prompts for professional assessment. They do not diagnose anything on their own.</p>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="eyebrow">Chapter 6</div>
+  <h2>How an OT works with a child</h2>
+  <p class="lead">The work follows four steps: comprehensive evaluation, ecologic assessment, context evaluating and effective intervention.</p>
+
+  <h3>What the OT is looking at</h3>
+  <div class="split">
+    <div>
+      <p>OT interventions do not always focus solely on the child's performance. Five things are analysed together.</p>
+      <ol>
+        <li><b>Child's behaviours and performance:</b> analysis of actions and abilities.</li>
+        <li><b>Environmental influence:</b> how performance is affected by impairment and how the environment supports or constrains it.</li>
+        <li><b>Occupations and context:</b> the child's activities and their settings.</li>
+        <li><b>Discrepancy identification:</b> gaps between performance and activity demands.</li>
+        <li><b>Interrelationship analysis:</b> examining environments, occupations and persons together for clinical decisions.</li>
+      </ol>
+    </div>
+    <figure class="fig">
+      <svg viewBox="0 0 320 300" role="img" aria-labelledby="venn-t">
+        <title id="venn-t">Venn diagram of person, environment and occupation overlapping at occupational performance</title>
+        <circle cx="120" cy="115" r="82" fill="var(--sky)" fill-opacity=".38"/>
+        <circle cx="200" cy="115" r="82" fill="var(--leaf)" fill-opacity=".38"/>
+        <circle cx="160" cy="183" r="82" fill="var(--gold)" fill-opacity=".42"/>
+        <g font-family="Public Sans, sans-serif" font-weight="700" font-size="14" fill="var(--ink)" text-anchor="middle">
+          <text x="92" y="92">Person</text><text x="228" y="92">Environment</text><text x="160" y="232">Occupation</text>
+        </g>
+        <g font-family="Public Sans, sans-serif" font-size="10.5" fill="var(--ink)" text-anchor="middle">
+          <text x="92" y="108">abilities, interests</text><text x="228" y="108">home, school, people</text><text x="160" y="248">tasks and roles</text>
+          <text x="160" y="150" font-weight="700" font-size="11">Participation</text><text x="160" y="164" font-weight="700" font-size="11">and performance</text>
+        </g>
+      </svg>
+      <figcaption>Where the three overlap is where the OT looks for fit and for gaps (person-environment-occupation model).</figcaption>
+    </figure>
+  </div>
+
+  <h3>Step 1 · Comprehensive evaluation</h3>
+  <ul>
+    <li><b>Begin</b> by understanding the child's level of participation in daily occupations and routines with family, other caregiving adults and peers.</li>
+    <li><b>Form a picture</b> of the child that includes his or her interests and priorities.</li>
+    <li><b>Assess</b> specific performance areas and analyse performance to find the reasons for the child's limitations.</li>
+  </ul>
+  <p>The best strategy for gathering information is to <b>interview the child</b> about play interests, favourite activities, best friends, concerns and worries, using open-ended questions. Establishing a relationship of mutual respect is essential. Understanding the family context and respecting the family's perspective are critical to setting the priorities for intervention and the outcomes most valued.</p>
+
+  <h3>Step 2 · Ecologic assessment</h3>
+  <div class="split top">
+    <ul>
+      <li>It is the evaluation in the child's <b>natural environment</b>.</li>
+      <li>It lets the therapist see how the environment influences performance and design interventions that are easy to carry out there.</li>
+      <li>It identifies the <b>discrepancy</b> between the child's performance and the expected performance.</li>
+      <li>Careful observation during daily activities (home chores, food shopping) shows which skills to practise, which tasks to modify and which environmental adaptations to make.</li>
+    </ul>
+    <div>
+      <p><b>It includes:</b> the School Function Assessment and the Sensory Processing Measure.</p>
+      <p>Ecologic approaches consider the person and the demands the person faces:</p>
+      <ul class="chips"><li>Physical</li><li>Social</li><li>Cultural</li><li>Temporal</li></ul>
+    </div>
+  </div>
+
+  <h3>Step 3 · Context evaluating</h3>
+  <p>The therapist evaluates the contexts where the child learns, plays and interacts, such as <b>home, school, daycare</b> and community settings. Performance in several contexts shows how each one affects performance and participation. Physical, social and cultural factors all matter.</p>
+  <div class="panel">
+    <h4 style="margin:0 0 4px;font-size:19px">Try it: audit a classroom</h4>
+    <p style="margin-bottom:14px">These are eight questions an OT asks about a setting. Tick every one that is true for the child's setting.</p>
+    <ul class="chk" id="ctx"></ul>
+    <div class="res" id="ctx-res" aria-live="polite"></div>
+  </div>
+  <p style="margin-top:16px">Moving from <b>assessment</b> of participation to <b>analysis</b> of performance and contexts gives the therapist a solid understanding of the strengths, concerns and problems of everyone involved: child, parent or caregiver, family members, teachers. The OT also knows how to interact with the child to build a trusting, positive relationship.</p>
+
+  <h3>Step 4 · Effective intervention</h3>
+  <p>Occupational therapists improve children's performance and participation by <b>providing interventions to enhance performance</b>, <b>adapting activities and modifying the environment</b>, and <b>consulting, educating and advocating</b>. They implement adapted methods or assistive technology to increase participation despite performance problems, while understanding the family context and respecting the family's perspective.</p>
+  <div class="grid">
+    <div class="rule"><h3>A · Enhance performance</h3><p>Interventions promote and reinforce participation and lead to <b>active engagement</b>. A child's brain responds differently and learns more effectively when actively involved than when receiving passive stimulation. Engagement funnels energy into the activity and helps the child sustain full attention.</p></div>
+    <div class="rule"><h3>B · Just-right challenge</h3><p>To promote change the activity must be challenging and create a degree of stress. Sessions begin with activities the child can do comfortably and competently, then move toward increasing challenges.</p></div>
+    <div class="rule"><h3>C · Therapeutic relationship</h3><p>A relationship that encourages and motivates lets the child <b>feel safe and willing to take risks</b>. The therapist shows interest, enjoys the child's personality, values preferences and goals, respects emotions, and builds a climate of trust and emotional safety.</p></div>
+  </div>
+
+  <h3>Explore the just-right challenge</h3>
+  <p><b>Example:</b> a child with <b>gravitational insecurity</b> (fear of and aversion to unstable surfaces or heights, with immature postural balance). Therapy begins close to the ground with close physical support. Gradually, in later sessions, the child walks on unstable surfaces and swings with the whole body suspended. Move the sliders and watch where the child lands.</p>
+  <div class="panel">
+    <div class="split top">
+      <div>
+        <div class="sl">
+          <label for="ch">Challenge of the activity <output id="ch-o">50</output></label>
+          <input id="ch" type="range" min="0" max="100" value="50">
+          <label for="su">Therapist support <output id="su-o">0</output></label>
+          <input id="su" type="range" min="0" max="100" value="0">
+        </div>
+        <div class="zone" id="zone" aria-live="polite"></div>
+      </div>
+      <figure class="fig">
+        <svg class="chart" viewBox="0 0 340 280" role="img" aria-label="Chart of challenge against skill showing a just-right zone">
+          <rect x="40" y="20" width="260" height="62" fill="var(--rose-soft)"/>
+          <rect x="40" y="130" width="260" height="110" fill="var(--sky-soft)"/>
+          <rect id="band" x="40" y="82" width="260" height="48" fill="var(--leaf-soft)"/>
+          <line class="ax" x1="40" y1="240" x2="300" y2="240"/><line class="ax" x1="40" y1="240" x2="40" y2="20"/>
+          <text class="lbl" x="170" y="262" text-anchor="middle">Effective challenge for this child</text>
+          <text class="lbl" x="24" y="130" transform="rotate(-90 24 130)" text-anchor="middle">Difficulty</text>
+          <text x="52" y="38" font-weight="700">Too hard</text>
+          <text x="52" y="124" font-weight="700">Just right</text>
+          <text x="52" y="226" font-weight="700">Too easy</text>
+          <circle id="dot" cx="170" cy="125" r="10" fill="var(--spruce)" stroke="var(--surface)" stroke-width="3"/>
+        </svg>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="sec" id="rules">
+  <div class="eyebrow">Chapter 7</div>
+  <h2>Rules for choosing activities and encouraging participation</h2>
+  <h3>Rules for applying OT activities</h3>
+  <ol>
+    <li>Children experience a greater degree of <b>sensory integration</b> when <b>actively</b>, rather than passively, participating in an activity.</li>
+    <li>Based on careful analysis of performance and behaviour, the OT <b>selects an activity</b> that matches the child's strengths and limitations across performance domains.</li>
+    <li>Analysis lets the therapist <b>individualise</b> the difficulty, the pace and the supports a child needs to accomplish a task.</li>
+    <li>The therapist selects highly <b>adaptable activities</b> that can be modified to raise or lower the difficulty level according to the child's performance.</li>
+  </ol>
+
+  <h3>How to encourage a child's participation</h3>
+  <div class="grid">
+    <div class="card"><h4>Offer choice</h4><p>Select an activity of interest that motivates the child and gives the child choices.</p></div>
+    <div class="card"><h4>Follow the child</h4><p>Encourage positive affect by attending to and imitating the child's actions and communication attempts, then wait for the child's response.</p></div>
+    <div class="card"><h4>Connect</h4><p>Establish eye contact, use gentle touch, and make non-evaluative comments.</p></div>
+    <div class="card"><h4>Grade the activity</h4><p>Choose activities that let the child feel important and match the child's abilities. This gives the chance to achieve <b>mastery</b> and a sense of accomplishment.</p></div>
+    <div class="card"><h4>Build self-esteem</h4><p>Skill achievement and success in mastering a task shape the child's self-esteem and self-image.</p></div>
+    <div class="card"><h4>Reinforce</h4><p>Provide adequate and appropriate intensity and reinforcement. Children rewarded for performing well show positive effects, so interventions should include reinforcement of effort.</p></div>
+  </div>
+
+  <h3>Reinforcement and feedback</h3>
+  <div class="split top">
+    <div>
+      <p><b>Natural reinforcement</b> includes eating cookies and enjoying socialisation with others during the activity. Positive reinforcement includes both kinds of feedback:</p>
+      <div class="grid s">
+        <div class="card" style="background:var(--leaf-soft)"><h4>Intrinsic</h4><p>Feeling competent or a sense of success.</p></div>
+        <div class="card" style="background:var(--gold-soft)"><h4>Extrinsic</h4><p>Adult praise or a treat.</p></div>
+      </div>
+    </div>
+    <p>External feedback is effective when it gives the child <b>specific information</b> about performance and when it <b>immediately follows</b> performance. "You held the pencil with three fingers that time" teaches more than "good job" given later.</p>
+  </div>
+
+  <h3>Adapted play and technology</h3>
+  <ul>
+    <li>Adapted play techniques may include <b>switch toys</b>, <b>battery-powered toys</b>, <b>enlarged handles on puzzle pieces</b> and <b>magnetic pieces</b> that fit together easily.</li>
+    <li><b>Computer programs</b> used in schools to promote literacy, writing and math skills help all children and are particularly beneficial to children with learning and physical disabilities.</li>
+  </ul>
+</section>
+
+<!-- TOOLKIT -->
+<section class="sec" id="toolkit">
+  <div class="eyebrow">Chapter 8</div>
+  <h2>The intervention toolkit</h2>
+  <p class="lead">Alongside the process steps, OTs draw on a common set of professional tools.</p>
+  <div class="grid">
+    <div class="rule"><h3>Therapeutic use of self</h3><p>Rapport, empathy, humour and presence used on purpose to motivate and build trust.</p></div>
+    <div class="rule"><h3>Activity analysis</h3><p>Breaking a task into steps and listing its demands (body, sensory, thinking, social, space, tools) to judge fit with the client.</p></div>
+    <div class="rule"><h3>Grading and adapting</h3><p><b>Grading</b> changes difficulty step by step. <b>Adapting</b> changes the method, tool or setting so the task becomes possible.</p></div>
+    <div class="rule"><h3>Assistive technology</h3><p>Low tech: pencil grips, built-up cutlery, non-slip mats. High tech: switches, speech devices, eye-gaze systems, adapted computers.</p></div>
+    <div class="rule"><h3>Splints and orthoses</h3><p>Custom devices that protect, support or position hands and joints, common in hand therapy and neurology.</p></div>
+    <div class="rule"><h3>Education and advocacy</h3><p>Teaching families and teachers, recommending accommodations, and speaking up for access and inclusion.</p></div>
+  </div>
+</section>
+
+<!-- ENVIRONMENT -->
+<section class="sec" id="environment">
+  <div class="eyebrow">Chapter 9</div>
+  <h2>Environmental modification</h2>
+  <p class="lead">A child with disabilities often benefits from modifications to the environment.</p>
+  <ul class="chips y"><li>Enhance participation</li><li>Increase safety (e.g. reduce barriers on the playground)</li><li>Improve comfort (e.g. reduce the incline of a ramp)</li></ul>
+
+  <div class="grid">
+    <figure class="fig card">
+      <svg viewBox="0 0 240 150" role="img" aria-label="A wheelchair on a gentle ramp compared with a steep one">
+        <line x1="10" y1="130" x2="230" y2="130" stroke="var(--muted)" stroke-width="2"/>
+        <polygon points="30,130 150,130 150,92" fill="var(--sky-soft)" stroke="var(--sky)" stroke-width="2"/>
+        <polygon points="150,130 215,130 215,50" fill="none" stroke="var(--rose)" stroke-width="2" stroke-dasharray="5 4"/>
+        <g transform="translate(78,102) rotate(-17)"><circle cx="0" cy="12" r="11" fill="none" stroke="var(--ink)" stroke-width="3"/><path d="M0 12V-6H14M0 -6 -6 -20" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/><circle cx="-6" cy="-26" r="6" fill="var(--spruce)"/></g>
+        <text x="30" y="20" font-size="11" font-weight="700" fill="var(--ink)">Gentle ramp</text><text x="30" y="35" font-size="10.5" fill="var(--muted)">easier to push</text>
+        <text x="150" y="20" font-size="11" font-weight="700" fill="var(--rose)">Steep</text>
+      </svg>
+      <figcaption>Reducing the incline improves ease of wheelchair use.</figcaption>
+    </figure>
+    <figure class="fig card">
+      <svg viewBox="0 0 240 150" role="img" aria-label="Adjustable-height desk for a child in a wheelchair">
+        <line x1="10" y1="132" x2="230" y2="132" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="116" y="62" width="104" height="10" rx="2" fill="var(--gold)"/>
+        <path d="M128 72v60M208 72v60" stroke="var(--ink)" stroke-width="5"/>
+        <path d="M222 54v-26M216 34l6-8 6 8M222 100V80M216 94l6 8 6-8" stroke="var(--spruce)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="52" cy="112" r="18" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
+        <path d="M52 112V76H82M52 76 50 44" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="50" cy="34" r="9" fill="var(--spruce)"/>
+        <path d="M52 56 100 60" stroke="var(--spruce)" stroke-width="4" stroke-linecap="round"/>
+        <text x="10" y="18" font-size="11" font-weight="700" fill="var(--ink)">Desk height adjusted</text>
+      </svg>
+      <figcaption>Desks and table heights may need adjusting for a child in a wheelchair.</figcaption>
+    </figure>
+    <figure class="fig card">
+      <svg viewBox="0 0 240 150" role="img" aria-label="A quiet corner with a pop-up tent and a beanbag chair">
+        <line x1="10" y1="132" x2="230" y2="132" stroke="var(--muted)" stroke-width="2"/>
+        <polygon points="40,132 100,36 160,132" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="3"/>
+        <path d="M100 36V132" stroke="var(--gold)" stroke-width="2"/>
+        <ellipse cx="190" cy="116" rx="32" ry="17" fill="var(--sky)" opacity=".7"/>
+        <circle cx="190" cy="92" r="9" fill="var(--spruce)"/>
+        <path d="M190 100v10" stroke="var(--spruce)" stroke-width="5" stroke-linecap="round"/>
+        <text x="10" y="18" font-size="11" font-weight="700" fill="var(--ink)">Quiet corner</text>
+        <text x="10" y="32" font-size="10.5" fill="var(--muted)">deep pressure and calm</text>
+      </svg>
+      <figcaption>A beanbag chair in a pop-up tent in the corner of the room.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Examples in practice</h3>
+  <div class="grid">
+    <div class="card"><h4>Accessible bathroom</h4><p>The school bathroom may be accessible to a wheelchair user, and the therapist recommends a <b>handlebar beside the toilet</b> so the child can safely perform a standing pivot transfer.</p></div>
+    <div class="card"><h4>Noisy classroom</h4><p>High noise levels can be overwhelmingly disorganising for a child <b>hypersensitive to auditory stimulation</b>.</p></div>
+    <div class="card"><h4>Deep pressure and quiet time</h4><p>Young children who need deep pressure or quiet times may need a <b>beanbag chair placed in a pop-up tent</b> in the corner of the room.</p></div>
+    <div class="card"><h4>Movable seating</h4><p>Sitting on <b>movable surfaces</b> such as liquid-filled cushions can improve posture and attention to classroom instruction, improving arousal and attention.</p></div>
+  </div>
+  <h3>More modifications OTs commonly recommend</h3>
+  <ul class="chips"><li>Visual schedules</li><li>Noise-reducing headphones</li><li>Slant boards</li><li>Pencil grips and raised-line paper</li><li>Footrests so feet reach the floor</li><li>Non-slip mats</li><li>Reduced clutter and glare</li><li>Labelled storage at child height</li></ul>
+</section>
+
+<!-- DEVELOPMENT -->
+<section class="sec" id="development">
+  <div class="eyebrow">Chapter 10</div>
+  <h2>Child development at a glance</h2>
+  <p class="lead">Knowing typical development tells an OT where a child is and what comes next. Filter by area.</p>
+  <div class="key"><span class="g">Gross motor</span><span class="f">Fine motor</span><span class="s">Self-care</span><span class="p">Play and social</span></div>
+  <div class="seg" id="mfilter" role="group" aria-label="Filter milestones">
+    <button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="g" aria-pressed="false">Gross motor</button><button type="button" data-f="f" aria-pressed="false">Fine motor</button><button type="button" data-f="s" aria-pressed="false">Self-care</button><button type="button" data-f="p" aria-pressed="false">Play and social</button>
+  </div>
+  <div class="lanes" id="lanes"></div>
+  <p class="note">Ages are approximate typical ranges. Children vary widely, and one late milestone is not a diagnosis.</p>
+
+  <h3>Core strength and sitting posture</h3>
+  <div class="split">
+    <div>
+      <p>Gross motor work in OT includes building <b>core muscle strength for sitting posture</b>. A weak trunk shows up when a child slumps at a desk: the pelvis tips backward, the spine flexes, the neck extends and the chin pokes forward, so the arms bend to reach the work. Upright sitting needs a stable pelvis and trunk before the arms and hands can work precisely.</p>
+      <p>Proximal stability supports distal mobility: shoulder and trunk control come first, then fine finger movement.</p>
+    </div>
+    <figure class="fig">
+      <svg viewBox="0 0 400 230" role="img" aria-label="Upright sitting posture compared with slumped sitting posture">
+        <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <g transform="translate(0,0)">
+            <rect x="40" y="150" width="90" height="64" rx="4" fill="var(--sky-soft)" stroke="none"/>
+            <path d="M70 150V82" stroke="var(--spruce)" stroke-width="7"/>
+            <circle cx="70" cy="62" r="17" fill="var(--spruce)" stroke="none"/>
+            <path d="M70 150H122V206" stroke="var(--ink)" stroke-width="7"/>
+            <path d="M70 98 112 124" stroke="var(--ink)" stroke-width="6"/>
+            <text x="20" y="22" font-size="13" font-weight="700" fill="var(--ink)" stroke="none">Upright</text>
+            <text x="20" y="38" font-size="11" fill="var(--muted)" stroke="none">stable pelvis and trunk</text>
+          </g>
+          <g transform="translate(200,0)">
+            <rect x="40" y="150" width="90" height="64" rx="4" fill="var(--rose-soft)" stroke="none"/>
+            <path d="M62 150Q42 112 76 84" stroke="var(--rose)" stroke-width="7"/>
+            <circle cx="104" cy="70" r="17" fill="var(--rose)" stroke="none"/>
+            <path d="M62 150H122V206" stroke="var(--ink)" stroke-width="7"/>
+            <path d="M76 98 120 112" stroke="var(--ink)" stroke-width="6"/>
+            <text x="20" y="22" font-size="13" font-weight="700" fill="var(--ink)" stroke="none">Slumped</text>
+            <path d="M26 150 48 150" stroke="var(--rose)" stroke-width="2.5"/><text x="20" y="176" font-size="10.5" fill="var(--ink)" stroke="none">pelvis tips back</text>
+            <text x="30" y="112" font-size="10.5" text-anchor="end" fill="var(--ink)" stroke="none">spine flexes</text>
+            <text x="126" y="56" font-size="10.5" fill="var(--ink)" stroke="none">chin pokes</text><text x="126" y="69" font-size="10.5" fill="var(--ink)" stroke="none">forward</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>Stick-figure view of the posture changes typical of weak core stability.</figcaption>
+    </figure>
+  </div>
+
+  <h3>How the pencil grasp matures</h3>
+  <div class="grid s">
+    <div class="card"><h4>1–2 years</h4><p><b>Palmar supinate:</b> fist around the crayon, whole-arm scribbles.</p></div>
+    <div class="card"><h4>2–3 years</h4><p><b>Digital pronate:</b> fingers grip, hand faces down, wrist and arm still move the pencil.</p></div>
+    <div class="card"><h4>3½–4 years</h4><p><b>Static tripod:</b> thumb, index and middle finger hold, but the whole hand moves.</p></div>
+    <div class="card" style="background:var(--leaf-soft)"><h4>4½–6 years</h4><p><b>Dynamic tripod:</b> mature grasp, fingers make small precise movements.</p></div>
+  </div>
+</section>
+
+<!-- SENSORY -->
+<section class="sec" id="sensory">
+  <div class="eyebrow">Chapter 11</div>
+  <h2>Sensory processing</h2>
+  <p class="lead">Sensory processing is how the nervous system receives, organises and responds to information from the body and the world. It is one of the five main activity areas OTs work on with children.</p>
+  <h3>Eight senses</h3>
+  <ul class="chips"><li>Sight</li><li>Hearing</li><li>Smell</li><li>Taste</li><li>Touch</li><li>Vestibular (movement and balance)</li><li>Proprioception (body position, joint and muscle input)</li><li>Interoception (internal body signals)</li></ul>
+  <div class="split top">
+    <div>
+      <p>Children with sensory processing difficulties may react too strongly, too weakly or unpredictably. Common examples include a child <b>hypersensitive to noise</b>, a child who needs <b>deep pressure</b>, and a child with <b>gravitational insecurity</b>.</p>
+      <p>Therapy typically combines rich sensory play (playdough, textured pots, balance discs, tactile mats) with active, goal-driven tasks, because children organise sensation best when they participate actively.</p>
+      <p class="note">The evidence for different sensory-based interventions varies. Good practice ties every sensory activity to a functional goal and measures whether it helps.</p>
+    </div>
+    <div>
+      <h4 style="margin:0 0 8px;font-size:18px">Dunn's four sensory patterns</h4>
+      <div class="dunn">
+        <div></div><div class="ax">Passive response</div><div class="ax">Active response</div>
+        <div class="ax v">Low threshold (notices easily)</div>
+        <div class="q" style="background:var(--rose-soft)"><h4>Sensitivity</h4><p>Notices a lot, becomes distressed or distracted.</p></div>
+        <div class="q" style="background:var(--gold-soft)"><h4>Avoiding</h4><p>Notices a lot, acts to escape it: covers ears, refuses textures.</p></div>
+        <div class="ax v">High threshold (needs more)</div>
+        <div class="q" style="background:var(--sky-soft)"><h4>Low registration</h4><p>Misses input; seems unaware or slow to respond.</p></div>
+        <div class="q" style="background:var(--leaf-soft)"><h4>Seeking</h4><p>Needs more, acts to get it: spins, crashes, chews.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORKS -->
+<section class="sec" id="frameworks">
+  <div class="eyebrow">Chapter 12</div>
+  <h2>Frameworks and models</h2>
+  <p class="lead">Models explain what OTs look at and why. This is the overview.</p>
+  <details open><summary>OTPF-4: Occupational Therapy Practice Framework</summary><div class="in"><p>AOTA's framework describing the profession's domain (occupations, contexts, performance patterns, performance skills, client factors) and process (evaluation, intervention, outcomes). See Chapter 4.</p></div></details>
+  <details><summary>MOHO: Model of Human Occupation</summary><div class="in"><p>Developed by Gary Kielhofner. Explains why people do what they do through <b>volition</b> (motivation, interests, values), <b>habituation</b> (habits and roles), <b>performance capacity</b> (body and mind abilities) and the <b>environment</b>.</p></div></details>
+  <details><summary>PEO: Person-Environment-Occupation</summary><div class="in"><p>Law and colleagues, 1996. Occupational performance results from the fit between the person, the environment and the occupation. Improving the fit improves performance. See the diagram in Chapter 6.</p></div></details>
+  <details><summary>CMOP-E: Canadian Model of Occupational Performance and Engagement</summary><div class="in"><p>Shows the person (with spirituality at the centre), the environment and occupations (self-care, productivity, leisure) interacting. Underlies the COPM assessment and client-centred practice.</p></div></details>
+  <details><summary>ICF: International Classification of Functioning, Disability and Health</summary><div class="in"><p>WHO framework describing health through body functions and structures, activities, participation, and environmental and personal factors. It underlines the emphasis on <b>participation</b> over performance alone.</p></div></details>
+  <details><summary>Ayres Sensory Integration</summary><div class="in"><p>A. Jean Ayres proposed that learning and behaviour depend on the brain's ability to organise sensation, especially touch, vestibular and proprioceptive input, into adaptive responses. Intervention gives active, playful, just-right sensory-motor challenges.</p></div></details>
+  <details><summary>Frames of reference</summary><div class="in"><ul><li><b>Developmental:</b> follows the typical sequence of skills.</li><li><b>Neurodevelopmental and motor control:</b> improves movement quality and postural control.</li><li><b>Biomechanical:</b> restores range of motion, strength and endurance.</li><li><b>Cognitive-behavioural:</b> changes thoughts and behaviours that limit participation.</li><li><b>Compensatory and adaptive:</b> changes the task or environment when ability cannot change.</li></ul></div></details>
+  <details><summary>Client-centred and family-centred care</summary><div class="in"><p>The client, and for children the family, sets priorities. This is why understanding the family context and respecting the family's perspective appears in both evaluation and intervention.</p></div></details>
+</section>
+
+<!-- ASSESSMENTS -->
+<section class="sec" id="assessments">
+  <div class="eyebrow">Chapter 13</div>
+  <h2>Assessments OTs use</h2>
+  <p class="lead">Filter by what each tool measures.</p>
+  <div class="seg" id="afilter" role="group" aria-label="Filter assessments">
+    <button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="Participation" aria-pressed="false">Participation and goals</button><button type="button" data-f="Sensory" aria-pressed="false">Sensory</button><button type="button" data-f="Motor" aria-pressed="false">Motor and hand</button><button type="button" data-f="Daily living" aria-pressed="false">Daily living and cognition</button>
+  </div>
+  <div class="grid" id="agrid"></div>
+  <p class="note">Standardised tools have specific age ranges, training and scoring rules. Use the current manual before using any of them in practice.</p>
+</section>
+
+<!-- CONDITIONS -->
+<section class="sec" id="conditions">
+  <div class="eyebrow">Chapter 14</div>
+  <h2>Conditions and the whole lifespan</h2>
+  <p class="lead">OT started in mental health and spread to every age group. Today it covers pediatrics, geriatrics, hand therapy, neurological rehabilitation and community health.</p>
+  <div class="grid">
+    <div class="card"><h3>Children and teens</h3><p><b>Cerebral palsy, autism, ADHD, Down syndrome, developmental coordination disorder, learning disabilities, sensory processing difficulties, spina bifida.</b></p><p>Focus: play, school, self-care, feeding, handwriting, participation.</p></div>
+    <div class="card"><h3>Adults: neurological</h3><p><b>Stroke, spinal cord injury, traumatic brain injury, multiple sclerosis, Parkinson's disease.</b></p><p>Focus: retraining daily tasks, upper-limb function, cognition, equipment and home changes.</p></div>
+    <div class="card"><h3>Hand and orthopedic</h3><p><b>Fractures, tendon injuries, nerve injuries, burns, amputations, arthritis.</b></p><p>Focus: splinting, scar management, graded hand use, return to work.</p></div>
+    <div class="card"><h3>Mental health</h3><p><b>Depression, anxiety, schizophrenia, trauma, substance use.</b></p><p>Focus: routines, coping skills, social participation, vocational skills.</p></div>
+    <div class="card"><h3>Older adults</h3><p><b>Dementia, falls, frailty, joint disease, stroke recovery.</b></p><p>Focus: safe independence, home modification, caregiver support.</p></div>
+    <div class="card"><h3>Community and work</h3><p><b>Workplace injury, chronic pain, homelessness, refugees, prisons.</b></p><p>Focus: ergonomics, return to work, access to meaningful roles, occupational justice.</p></div>
+  </div>
+</section>
+
+<!-- ETHICS -->
+<section class="sec" id="ethics">
+  <div class="eyebrow">Chapter 15</div>
+  <h2>Ethics, evidence and career</h2>
+  <div class="grid">
+    <div class="rule"><h3>Ethical principles</h3><ul><li><b>Beneficence:</b> act for the client's benefit</li><li><b>Nonmaleficence:</b> avoid harm</li><li><b>Autonomy:</b> respect choice and consent</li><li><b>Justice:</b> fairness and access</li><li><b>Veracity:</b> honesty</li><li><b>Fidelity:</b> loyalty and confidentiality</li></ul></div>
+    <div class="rule"><h3>Evidence-based practice</h3><p>Combine the best research, the therapist's clinical reasoning and the client's or family's values. Measure outcomes with standardised tools and goal-based scales.</p></div>
+    <div class="rule"><h3>Documentation</h3><p>Notes record evaluation findings, goals, interventions and progress. Many services use the SOAP format: Subjective, Objective, Assessment, Plan.</p></div>
+    <div class="rule"><h3>Career paths</h3><p>Clinical practice (pediatrics, hand therapy, neurology, mental health, geriatrics), school systems, community programmes, ergonomics, assistive technology, research, education and management. Entry-level qualifications vary by country.</p></div>
+  </div>
+</section>
+
+<!-- COURSE -->
+<section class="sec" id="course">
+  <div class="eyebrow">Chapter 16 · Study tool</div>
+  <h2>Course roadmap</h2>
+  <p class="lead">Occupational Therapy (NUR 5562), 2 hours: fourteen sessions from introduction to aging.</p>
+  <ol class="course">
+    <li class="now"><span class="n">01</span><span><b>Introduction to Occupational Therapy</b></span></li>
+    <li><span class="n">02</span><span>An Overview of Occupational Therapy for Children</span></li>
+    <li><span class="n">03</span><span>Evaluation and Intervention to Develop Hand Skills (1)</span></li>
+    <li><span class="n">04</span><span>Evaluation and Intervention to Develop Hand Skills (2)</span></li>
+    <li><span class="n">05</span><span>ADL (1)</span></li>
+    <li><span class="n">06</span><span>ADL (2)</span></li>
+    <li><span class="n">07</span><span>Feeding Intervention</span></li>
+    <li><span class="n">08</span><span>Sensory Integration</span></li>
+    <li><span class="n">09</span><span>Prewriting and Handwriting Skills</span></li>
+    <li><span class="n">10</span><span>Conceptual Frameworks, Historical Contexts and Practice Principles</span></li>
+    <li><span class="n">11</span><span>Variations in Structures and the Normal Aging Process</span></li>
+    <li><span class="n">12</span><span>Physiological and Neurological System Changes with Aging and Related OT Interventions</span></li>
+    <li><span class="n">13</span><span>The Physical Environment and Aging (1)</span></li>
+    <li><span class="n">14</span><span>The Physical Environment and Aging (2)</span></li>
+  </ol>
+  <h3>What is coming up</h3>
+  <details><summary>Sessions 3–4: hand skills</summary><div class="in"><p>Grasp and release, in-hand manipulation, bilateral coordination and the evaluation of hand function, then activities that build strength, dexterity and control.</p></div></details>
+  <details><summary>Sessions 5–7: ADL and feeding</summary><div class="in"><p>Dressing, toileting, bathing and grooming routines, how to teach them step by step, adaptive equipment, and feeding problems such as oral-motor difficulty and food selectivity.</p></div></details>
+  <details><summary>Sessions 8–9: sensory integration and handwriting</summary><div class="in"><p>Sensory processing assessment and intervention, followed by the prewriting strokes, pencil grasp, letter formation and the visual-motor skills behind handwriting.</p></div></details>
+  <details><summary>Sessions 10–14: frameworks and aging</summary><div class="in"><p>Conceptual frameworks and practice principles, then normal aging, physiological and neurological changes, and how the physical environment can support older adults.</p></div></details>
+</section>
+
+<!-- GLOSSARY -->
+<section class="sec" id="glossary">
+  <div class="eyebrow">Chapter 17 · Study tool</div>
+  <h2>Glossary</h2>
+  <label for="gs" class="sr" style="position:absolute;left:-9999px">Search the glossary</label>
+  <input id="gs" class="search" type="search" placeholder="Search terms, e.g. sensory, ADL, grading">
+  <dl id="gl"></dl>
+</section>
+
+<!-- QUIZ -->
+<section class="sec" id="quiz">
+  <div class="eyebrow">Chapter 18 · Study tool</div>
+  <h2>Self-test</h2>
+  <p class="lead">Fourteen questions covering the whole guide. Choose an answer to see the explanation.</p>
+  <div class="score" id="score" aria-live="polite">0 / 14 correct</div>
+  <div id="qs"></div>
+  <div class="res" id="qres" hidden></div>
+</section>
+
+<footer>
+  <p><b>About this guide.</b> A study aid that summarises commonly taught occupational therapy content. It is not clinical advice. Check your course textbooks and your instructor for exam requirements.</p>
+</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+  /* theme toggle */
+  var root=document.documentElement;
+  try{var t=localStorage.getItem('otg-theme'); if(t) root.setAttribute('data-theme',t)}catch(e){}
+  $('#theme').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark' || (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var n=dark?'light':'dark'; root.setAttribute('data-theme',n);
+    try{localStorage.setItem('otg-theme',n)}catch(e){}
+  });
+
+  /* scrollspy */
+  var links=$$('#rail a'), secs=links.map(function(a){return $(a.getAttribute('href'))});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){
+      links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)});
+      var on=$('#rail a.on'), rail=$('#rail');
+      if(on && getComputedStyle(rail).display==='flex'){ rail.scrollTo({left:on.offsetLeft-rail.clientWidth/2+on.clientWidth/2,behavior:'smooth'}) }
+    }});
+  },{rootMargin:'-20% 0px -70% 0px'});
+  secs.forEach(function(s){ if(s) io.observe(s) });
+
+  /* occupations ring */
+  var occ=[
+    ['ADLs','Activities of daily living','Basic self-care: bathing, dressing, toileting, eating, grooming, functional mobility. Examples: brushing teeth, buttoning clothes, using eating utensils.'],
+    ['IADLs','Instrumental activities of daily living','Tasks that support life at home and in the community: meal preparation, shopping, money management, using a phone, caring for others or pets, home upkeep.'],
+    ['Health management','Health management','Looking after your own health: taking medication, exercising, eating well, attending appointments, managing symptoms and routines.'],
+    ['Rest & sleep','Rest and sleep','Quiet rest, preparing for sleep and sleeping. Poor sleep affects attention, mood and learning, so OTs address bedtime routines.'],
+    ['Education','Education','Learning and taking part in school: classroom routines, handwriting, using technology, homework, exploring interests.'],
+    ['Work','Work','Paid or volunteer work, finding and keeping a job, and preparing for retirement. For young people it includes developing work habits and skills.'],
+    ['Play','Play','Spontaneous or organised activity that gives enjoyment and amusement. Play is the main occupation of childhood and a main OT tool.'],
+    ['Leisure','Leisure','Non-obligatory activity chosen in free time: hobbies, sport, reading, gaming, crafts.'],
+    ['Social participation','Social participation','Taking part in family, peer and community life: friendships, group activities, belonging in class.']
+  ];
+  var ring=$('#ring'), NS='http://www.w3.org/2000/svg', cx=150, cy=150, R1=140, R0=70;
+  function pt(r,a){a=a*Math.PI/180;return [cx+r*Math.cos(a),cy+r*Math.sin(a)]}
+  function sel(i){
+    $$('#ring g').forEach(function(g,j){g.setAttribute('aria-pressed',j===i?'true':'false')});
+    $('#occ-t').textContent=occ[i][1]; $('#occ-d').textContent=occ[i][2];
+  }
+  occ.forEach(function(o,i){
+    var a0=i*40-90+1.2,a1=(i+1)*40-90-1.2,p0=pt(R1,a0),p1=pt(R1,a1),p2=pt(R0,a1),p3=pt(R0,a0);
+    var g=document.createElementNS(NS,'g'); g.setAttribute('role','button'); g.setAttribute('tabindex','0'); g.setAttribute('aria-label',o[1]); g.setAttribute('aria-pressed','false');
+    var p=document.createElementNS(NS,'path');
+    p.setAttribute('d','M'+p0+' A'+R1+','+R1+' 0 0 1 '+p1+' L'+p2+' A'+R0+','+R0+' 0 0 0 '+p3+' Z');
+    g.appendChild(p);
+    var m=pt((R1+R0)/2+4,(a0+a1)/2), tx=document.createElementNS(NS,'text'), words=o[0].split(' ');
+    words.forEach(function(w,k){var s=document.createElementNS(NS,'tspan'); s.setAttribute('x',m[0]); s.setAttribute('y',m[1]+(k-(words.length-1)/2)*12+4); s.textContent=w; tx.appendChild(s)});
+    g.appendChild(tx);
+    g.addEventListener('click',function(){sel(i)});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(i)}});
+    ring.appendChild(g);
+  });
+  var c1=document.createElementNS(NS,'text'); c1.setAttribute('class','mid'); c1.setAttribute('x',150); c1.setAttribute('y',152); c1.textContent='Occupation';
+  var c2=document.createElementNS(NS,'text'); c2.setAttribute('class','mid2'); c2.setAttribute('x',150); c2.setAttribute('y',168); c2.textContent='9 AREAS';
+  ring.appendChild(c1); ring.appendChild(c2); sel(0);
+
+  /* context checklist */
+  var cq=[['access','Does the environment allow physical access?'],['materials','Are materials to promote development available?'],['supervision','Does the environment provide an optimal amount of supervision?'],['safe','Is the environment safe?'],['variety','Are a variety of spaces and sensory experiences available?'],['interaction','Is the environment conducive to social interaction?'],['exploration','Are opportunities for exploration, play and learning available?'],['support','Is positive adult support available and developmentally appropriate?']];
+  var ul=$('#ctx');
+  cq.forEach(function(q,i){
+    var li=document.createElement('li'), id='cq'+i;
+    li.innerHTML='<label for="'+id+'"><input type="checkbox" id="'+id+'"><span><b>'+q[0].charAt(0).toUpperCase()+q[0].slice(1)+'.</b> '+q[1]+'</span></label>';
+    ul.appendChild(li);
+  });
+  function ctx(){
+    var boxes=$$('#ctx input'), n=boxes.filter(function(b){return b.checked}).length, gaps=[];
+    boxes.forEach(function(b,i){if(!b.checked)gaps.push(cq[i][0])});
+    $('#ctx-res').innerHTML=n===8?'<b>8 of 8 supports in place.</b> This setting looks well matched. The OT would still observe how the child actually uses it.':'<b>'+n+' of 8 supports in place.</b> To explore with the family and school: '+gaps.join(', ')+'.';
+  }
+  ul.addEventListener('change',ctx); ctx();
+
+  /* just-right challenge */
+  var ch=$('#ch'), su=$('#su');
+  function jr(){
+    var c=+ch.value, s=+su.value, eff=Math.max(0,Math.min(100,c-s*0.35));
+    $('#ch-o').textContent=c; $('#su-o').textContent=s;
+    var y=240-eff*2.2; $('#dot').setAttribute('cy',y);
+    var z=$('#zone'), h;
+    if(eff<50){z.className='zone z-low';h='<b>Too easy</b>Walking on the flat floor. Comfortable, but the child learns little new.'}
+    else if(eff<=72){z.className='zone z-ok';h='<b>Just right</b>Stepping onto a low, wobbly cushion close to the ground with the therapist holding steady. The child feels secure enough to take a risk.'}
+    else{z.className='zone z-hi';h='<b>Too hard</b>Swinging fully suspended on the first day. The fear response takes over, the child shuts down and the therapeutic relationship is at risk.'}
+    z.innerHTML=h+'<br><span class="mono" style="font-size:12px;color:var(--muted)">Effective challenge: '+Math.round(eff)+'</span>';
+  }
+  ch.addEventListener('input',jr); su.addEventListener('input',jr);
+  $('#band').setAttribute('y',240-72*2.2); $('#band').setAttribute('height',(72-50)*2.2); jr();
+
+  /* milestones */
+  var ms=[
+    ['0–3 months',[['g','Lifts head briefly on tummy'],['f','Hands mostly fisted, grasp reflex'],['s','Coordinates suck-swallow-breathe to feed'],['p','Social smile, follows faces']]],
+    ['4–6 months',[['g','Rolls over, sits with support'],['f','Reaches and grasps, passes toy hand to hand'],['s','Opens mouth for spoon, starts solids near 6 months'],['p','Laughs, explores toys with mouth']]],
+    ['7–12 months',[['g','Sits alone, crawls, pulls to stand'],['f','Raking grasp then pincer grasp by about 10–12 months'],['s','Finger-feeds, holds bottle'],['p','Peekaboo, bangs two objects together']]],
+    ['1–2 years',[['g','Walks alone, begins to run and climb'],['f','Fist-grip scribbles, stacks 2–4 blocks'],['s','Uses spoon with spills, helps undress'],['p','Pretend play begins, parallel play']]],
+    ['2–3 years',[['g','Jumps with both feet, kicks a ball'],['f','Stacks 6–8 blocks, snips with scissors, turns knobs'],['s','Washes hands, uses fork, pulls pants up and down'],['p','Plays beside others, simple pretend scenes']]],
+    ['3–4 years',[['g','Pedals a tricycle, briefly stands on one foot'],['f','Copies a circle, strings large beads'],['s','Fastens large buttons, mostly toilet trained'],['p','Cooperative play, takes turns with help']]],
+    ['4–5 years',[['g','Hops on one foot, catches a bounced ball'],['f','Copies a cross, cuts along a line, tripod grasp'],['s','Dresses with zips, brushes teeth with supervision'],['p','Group games, imaginative play with roles']]],
+    ['5–6 years',[['g','Skips, balances well, rides with training wheels'],['f','Copies square and triangle, writes first name, cuts out shapes'],['s','Ties shoelaces (varies), spreads with a knife'],['p','Follows game rules, has friendships']]]
+  ];
+  function drawLanes(f){
+    $('#lanes').innerHTML=ms.map(function(l){
+      var items=l[1].filter(function(i){return f==='all'||i[0]===f}).map(function(i){return '<li class="m-'+i[0]+'">'+i[1]+'</li>'}).join('');
+      return items?'<div class="lane"><div class="age">'+l[0]+'</div><ul>'+items+'</ul></div>':'';
+    }).join('');
+  }
+  drawLanes('all');
+  $('#mfilter').addEventListener('click',function(e){var b=e.target.closest('button'); if(!b)return; $$('#mfilter button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')}); drawLanes(b.dataset.f)});
+
+  /* assessments */
+  var as=[
+    ['School Function Assessment (SFA)','Participation','Elementary school age','Questionnaire completed by school staff about a student\'s participation and task supports across school settings. Often used as part of ecologic assessment.',1],
+    ['Sensory Processing Measure (SPM)','Sensory','Children, forms for home and school','Rating forms completed by parents and teachers about sensory processing, praxis and social participation in different environments.',1],
+    ['Sensory Profile','Sensory','Infants to adults, age-specific forms','Caregiver questionnaire on responses to everyday sensory events, scored against Dunn\'s four sensory patterns.',0],
+    ['COPM','Participation','Any age','Canadian Occupational Performance Measure. A client-chosen interview: the person names problems in self-care, productivity and leisure, then rates importance, performance and satisfaction.',0],
+    ['Peabody Developmental Motor Scales (PDMS-2)','Motor','Birth to 5 years','Measures gross and fine motor development, with activities to guide treatment.',0],
+    ['Bruininks-Oseretsky Test (BOT-2)','Motor','4 to 21 years','Measures fine and gross motor proficiency: fine manual control, coordination, balance, strength and agility.',0],
+    ['Beery VMI','Motor','From about 2 years','Visual-motor integration: copying geometric forms of increasing difficulty, with supplemental visual and motor tests.',0],
+    ['Jebsen-Taylor Hand Function Test','Motor','Children to adults','Timed everyday hand tasks such as writing, turning cards and lifting cans.',0],
+    ['Nine-Hole Peg Test','Motor','Children to adults','Timed finger dexterity test: place and remove nine pegs.',0],
+    ['GMFCS and MACS','Motor','Children with cerebral palsy','Classification systems with five levels: gross motor function (GMFCS) and how the hands handle objects in daily life (MACS).',0],
+    ['PEDI','Daily living','About 6 months to 7½ years','Pediatric Evaluation of Disability Inventory: self-care, mobility and social function from caregiver report or observation.',0],
+    ['WeeFIM','Daily living','Children','Functional Independence Measure for children: rates the amount of help needed in self-care, mobility and cognition.',0],
+    ['Barthel Index and FIM','Daily living','Adults','Scores independence in basic activities such as feeding, bathing and transfers.',0],
+    ['MoCA','Daily living','Adults','Montreal Cognitive Assessment: brief screen of attention, memory, language and executive function.',0],
+    ['AMPS','Daily living','Ages 2 and up','Assessment of Motor and Process Skills: the therapist observes the person doing chosen everyday tasks and rates motor and process skills.',0]
+  ];
+  function drawA(f){
+    $('#agrid').innerHTML=as.filter(function(a){return f==='all'||a[1]===f}).map(function(a){
+      return '<div class="card"><h4>'+a[0]+(a[4]?'':'')+'</h4><div class="mono" style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">'+a[1]+' · '+a[2]+'</div><p>'+a[3]+'</p></div>';
+    }).join('');
+  }
+  drawA('all');
+  $('#afilter').addEventListener('click',function(e){var b=e.target.closest('button'); if(!b)return; $$('#afilter button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')}); drawA(b.dataset.f)});
+
+  /* glossary */
+  var gl=[
+    ['ADL','Activities of daily living: basic self-care such as eating, dressing, toileting, bathing.'],
+    ['IADL','Instrumental ADL: tasks like cooking, shopping, money management and using transport.'],
+    ['Occupation','Everyday activities that give life meaning and purpose; not only jobs.'],
+    ['Participation','Involvement in a life situation: being part of school, play, family and community.'],
+    ['Performance','How well a person carries out a task, observed in action.'],
+    ['Ecologic assessment','Evaluation in the child\'s natural environment to see how setting affects performance.'],
+    ['Discrepancy','The gap between a child\'s actual performance and the performance expected or required.'],
+    ['Just-right challenge','An activity hard enough to promote change but achievable with support.'],
+    ['Gravitational insecurity','Fear of and aversion to unstable surfaces or heights, with immature postural balance.'],
+    ['Sensory integration','The brain\'s organisation of sensory input to produce adaptive responses.'],
+    ['Sensory processing','How the nervous system receives and responds to sensory input.'],
+    ['Hypersensitivity','Over-responsiveness to sensory input, e.g. distress at normal classroom noise.'],
+    ['Deep pressure','Firm, steady touch or pressure input that many children find calming.'],
+    ['Proprioception','Sense of body position and movement from muscles and joints.'],
+    ['Vestibular sense','Sense of head movement, balance and gravity from the inner ear.'],
+    ['Fine motor skills','Small-muscle movements of the hands and fingers: grasping, writing, cutting.'],
+    ['Gross motor skills','Large-muscle movements: sitting, walking, jumping, throwing.'],
+    ['Hand-eye coordination','Using vision to guide hand movements, e.g. copying from the board.'],
+    ['Bilateral coordination','Using both sides of the body together in a planned way.'],
+    ['Praxis','Ability to plan and carry out new, unfamiliar movements.'],
+    ['Core stability','Trunk muscle control that holds the body upright for sitting and for stable arm use.'],
+    ['Grading','Making an activity easier or harder in small steps.'],
+    ['Adaptation','Changing the method, tool or setting so a task can be done.'],
+    ['Assistive technology','Any device or system that increases participation, from a pencil grip to a speech device.'],
+    ['Activity analysis','Breaking a task into steps and demands to judge fit with a client.'],
+    ['Therapeutic use of self','Using rapport, empathy and personality deliberately as part of therapy.'],
+    ['Intrinsic reinforcement','Internal reward: feeling competent or successful.'],
+    ['Extrinsic reinforcement','External reward: praise, a treat or a token.'],
+    ['Standing pivot transfer','Moving from one surface to another by standing and turning on the feet, often using a grab bar.'],
+    ['Moral treatment','18th–19th century approach treating mental illness with useful activity and humane routines.'],
+    ['Client-centred practice','Care built on the client\'s own goals and values, with the family for children.'],
+    ['MOHO','Model of Human Occupation (Kielhofner): volition, habituation, performance capacity, environment.'],
+    ['PEO','Person-Environment-Occupation model: performance comes from the fit of the three.'],
+    ['ICF','WHO International Classification of Functioning, Disability and Health.'],
+    ['Orthosis (splint)','A device that supports, protects or positions a body part.'],
+    ['Occupational justice','The idea that everyone should have fair access to meaningful occupations.']
+  ];
+  function drawG(q){
+    q=(q||'').toLowerCase();
+    $('#gl').innerHTML=gl.filter(function(g){return !q||g[0].toLowerCase().indexOf(q)>-1||g[1].toLowerCase().indexOf(q)>-1}).map(function(g){return '<div><dt>'+g[0]+'</dt><dd>'+g[1]+'</dd></div>'}).join('')||'<p>No matching terms.</p>';
+  }
+  drawG(''); $('#gs').addEventListener('input',function(e){drawG(e.target.value)});
+
+  /* quiz */
+  var Q=[
+    ['In which year was the National Society for the Promotion of Occupational Therapy founded in the USA?',['1900','1917','1946','1952'],1,'It was founded in 1917 and defined OT as the use of self-care, work and leisure activities as therapy. The WFOT came later, in 1952.'],
+    ['The Moral Treatment Movement treated people with mental illness mainly through:',['Isolation and restraints','Useful activities such as farming, handwork and structured routines','Surgery','Medication only'],1,'Doctors in Europe and America replaced isolation and restraints with useful activities and routines.'],
+    ['OT interventions for children focus on:',['Only raising test scores','Adapted methods or assistive technology to increase participation despite performance problems','Replacing the family\'s role','Practising one skill until it is perfect'],1,'The emphasis is on participation, even when performance problems remain.'],
+    ['Ecologic assessment is an evaluation carried out in:',['A therapy clinic only','The child\'s natural environment','A hospital ward','Any online form'],1,'It looks at how the natural environment influences performance and helps design interventions easy to carry out there.'],
+    ['A child may be referred to OT in two primary situations. They are:',['A specific diagnosis or a functional problem','Age or gender','School request or insurance','Fine motor or gross motor delay only'],0,'Examples: autism or cerebral palsy (diagnosis); poor fine motor skills or attention deficits (functional problem).'],
+    ['A "just-right challenge" is an activity that is:',['So easy that no effort is needed','Challenging enough to promote change yet achievable with support','Impossible, so the child learns persistence','Always chosen by the child alone'],1,'Sessions start with what the child can do comfortably, then increase challenge.'],
+    ['Gravitational insecurity is best described as:',['Weak hand grip','Fear of and aversion to unstable surfaces or heights with immature postural balance','Dislike of loud sounds','Difficulty chewing'],1,'Therapy starts close to the ground with close support, then gradually moves to unstable surfaces and swinging.'],
+    ['Which is an example of intrinsic reinforcement?',['Feeling competent after finishing a task','A sticker','Adult praise','A treat'],0,'Intrinsic reinforcement comes from within, such as a sense of success. Praise and treats are extrinsic.'],
+    ['Which assessment is commonly used as part of ecologic assessment?',['School Function Assessment','Berg Balance Scale','MoCA','Barthel Index'],0,'The School Function Assessment and the Sensory Processing Measure are both named.'],
+    ['A child who is hypersensitive to classroom noise and needs quiet time might benefit from:',['A louder, busier seat','A beanbag chair in a pop-up tent in the corner of the room','Removal from school','No changes'],1,'This environmental modification gives deep pressure and quiet time.'],
+    ['Which model by Gary Kielhofner explains volition, habituation, performance capacity and environment?',['MOHO','PEO','ICF','GMFCS'],0,'The Model of Human Occupation (MOHO).'],
+    ['Which pencil grasp is considered mature?',['Palmar supinate','Digital pronate','Dynamic tripod','Fisted grasp'],2,'The dynamic tripod appears around 4½–6 years and allows small, precise finger movements.'],
+    ['In Dunn\'s model, a child with a low threshold who actively tries to escape input shows:',['Low registration','Sensation seeking','Sensory sensitivity','Sensation avoiding'],3,'Low threshold plus an active response is sensation avoiding. Low threshold plus a passive response is sensory sensitivity.']
+  ];
+  var qs=$('#qs'), right=0, done=0, total=Q.length+0;
+  Q.push(['Which statement best describes performance versus participation?',['They mean the same thing','Performance is how well a task is done; participation is being involved in life situations','Participation is only about school','Performance is about the family'],1,'A child may perform a task imperfectly and still participate fully when the OT adapts the method or environment.']);
+  total=Q.length; $('#score').textContent='0 / '+total+' correct';
+  Q.forEach(function(q,i){
+    var d=document.createElement('div'); d.className='q-item';
+    d.innerHTML='<h4>'+(i+1)+'. '+q[0]+'</h4><div class="opts">'+q[1].map(function(o,j){return '<button type="button" class="opt" data-j="'+j+'">'+o+'</button>'}).join('')+'</div><div class="exp" hidden></div>';
+    d.addEventListener('click',function(e){
+      var b=e.target.closest('.opt'); if(!b||b.disabled)return;
+      var j=+b.dataset.j, ok=j===q[2];
+      $$('.opt',d).forEach(function(x,k){x.disabled=true; if(k===q[2])x.classList.add('ok')});
+      if(!ok)b.classList.add('no');
+      var ex=$('.exp',d); ex.hidden=false; ex.textContent=(ok?'Correct. ':'Not quite. ')+q[3];
+      done++; if(ok)right++;
+      $('#score').textContent=right+' / '+total+' correct';
+      if(done===total){var r=$('#qres'); r.hidden=false; r.innerHTML='<b>Finished: '+right+' of '+total+'.</b> '+(right>=total*0.8?'Strong grasp of the material.':'Review the chapters for the questions you missed, then try again.')}
+    });
+    qs.appendChild(d);
+  });
+})();
+</script>
